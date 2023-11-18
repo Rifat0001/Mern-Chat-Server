@@ -19,9 +19,7 @@ app.get('/', (req, res) => {
     res.send('chat server is running');
 })
 
-app.get('/api/chat', (req, res) => {
-    res.send(chats)
-})
+app.use("/api/chat", chatRoutes)
 
 app.use('/api/user', userRoutes)
 

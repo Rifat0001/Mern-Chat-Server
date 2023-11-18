@@ -1,6 +1,10 @@
 const express = require("express");
 const app = express();
 const {chats} = require("./backend/data/data")
+const dotenv = require("dotenv");
+
+dotenv.config();
+const PORT = process.env.PORT || 5000;
 
 app.get('/', (req, res) => {
     res.send('chat server is running');
@@ -17,4 +21,4 @@ app.get("/api/chat/:id",(req,res)=>{
     res.send(singleChat)
 })
 
-app.listen(5000,console.log(`Server running on port 5000`));
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));

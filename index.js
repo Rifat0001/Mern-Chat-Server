@@ -2,7 +2,7 @@ const express = require("express");
 const app = express();
 const { chats } = require("./backend/data/data")
 const dotenv = require("dotenv");
-const connectDB = require("./backend/config/db");
+const userRoutes = require('./backend/routes/userRoutes')
 dotenv.config();
 const PORT = process.env.PORT || 5000;
 
@@ -44,6 +44,8 @@ app.get('/', (req, res) => {
 app.get('/api/chat', (req, res) => {
     res.send(chats)
 })
+
+app.use('/api/user', userRoutes)
 
 //? for single chat id 
 app.get("/api/chat/:id", (req, res) => {

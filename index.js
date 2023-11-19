@@ -6,6 +6,7 @@ const userRoutes = require('./backend/routes/userRoutes')
 const { notFound, errorHandler } = require("./backend/middleware/errorMiddleware")
 dotenv.config();
 const connectDB = require("./backend/config/db");
+const chatRoutes = require('./backend/routes/chatRoutes')
 const PORT = process.env.PORT || 5000;
 connectDB();
 //? so that user json format user data accepted 
